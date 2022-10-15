@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BasicService } from 'src/shared/services/basicService/basic.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'TaskManagerClient';
+
+  constructor(
+    public basicService: BasicService
+  ) { }
+
 }

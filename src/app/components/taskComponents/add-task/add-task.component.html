@@ -1,0 +1,71 @@
+<mat-dialog-actions align="end">
+    <button mat-icon-button color="warn" mat-dialog-close>
+        <mat-icon>close</mat-icon>
+    </button>
+</mat-dialog-actions>
+<h1 mat-dialog-title>Add Task</h1>
+<mat-dialog-content class="card">
+    <form [formGroup]="formValidation" (ngSubmit)="onSubmit()">
+        <mat-form-field 
+            appearance="outline" 
+            class="full-width"
+        >
+            <mat-label>Title</mat-label>
+            <input
+                formControlName="title"
+                matInput 
+                placeholder="Enter your task title" 
+                type="text"
+            >
+            <div *ngIf="title?.invalid && title?.touched">
+                <mat-error *ngIf="title?.errors?.['required']">
+                    Title is required..
+                </mat-error>
+                <mat-error *ngIf="title?.errors?.['maxlength']">
+                    Title can only have 20 letters..
+                </mat-error>
+            </div>
+        </mat-form-field>
+        <mat-form-field 
+            appearance="outline" 
+            class="full-width"
+        >
+            <mat-label>Description</mat-label>
+            <textarea
+                formControlName="description"
+                matInput 
+                placeholder="Enter your task description" 
+                rows="5"
+                type="text"
+            ></textarea>
+            <div *ngIf="description?.invalid && description?.touched">
+                <mat-error *ngIf="description?.errors?.['maxlength']">
+                    Title can only have 5000 letters..
+                </mat-error>
+            </div>
+        </mat-form-field>
+        <mat-form-field 
+            appearance="outline" 
+            class="full-width"
+        >
+            <mat-label>Date/ Time</mat-label>
+            <input
+                formControlName="date_time"
+                matInput 
+                placeholder="Enter your task date time" 
+                type="datetime-local"
+            >
+            <div *ngIf="date_time?.invalid && date_time?.touched">
+                <mat-error *ngIf="date_time?.errors?.['required']">
+                    Date and time is required..
+                </mat-error>
+            </div>
+        </mat-form-field>
+        <hr>
+        <div>
+            <button mat-raised-button color="primary" type="submit" class="full-width btn">
+                Add
+            </button>
+        </div>
+    </form>
+</mat-dialog-content>

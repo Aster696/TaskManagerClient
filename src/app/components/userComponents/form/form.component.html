@@ -1,0 +1,116 @@
+<div class="container">
+    <mat-card class="card">
+        <mat-card-header>
+            <mat-card-title>
+                {{currentRoute === routeP.slase+routeP.signup ? "Signup" : "Login"}}
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form [formGroup]="formValidation" (ngSubmit)="currentRoute === routeP.slase+routeP.signup ? signup() : login()">
+                <mat-form-field 
+                    *ngIf="currentRoute === routeP.slase+routeP.signup" 
+                    appearance="outline" 
+                    class="full-width"
+                >
+                    <mat-label>Name</mat-label>
+                    <input 
+                        formControlName="userName"
+                        matInput 
+                        placeholder="Enter your name" 
+                        type="text">
+                    <div *ngIf="userName?.invalid && userName?.touched">
+                        <mat-error *ngIf="userName?.errors?.['required']">
+                            Name is required..
+                        </mat-error>
+                        <mat-error *ngIf="userName?.errors?.['minlength']">
+                            Your name must atleast have 3 letters..
+                        </mat-error>
+                        <mat-error *ngIf="userName?.errors?.['maxlength']">
+                            Your name must not have more than 15 letters..
+                        </mat-error>
+                    </div>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Email</mat-label>
+                    <input 
+                        formControlName="email"
+                        matInput 
+                        placeholder="Enter your email" 
+                        type="email">
+                    <div *ngIf="email?.invalid && email?.touched">
+                        <mat-error *ngIf="email?.errors?.['required']">
+                            Email is required..
+                        </mat-error>
+                        <mat-error *ngIf="email?.errors?.['email']">
+                            Enter a proper email..
+                        </mat-error>
+                    </div>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Password</mat-label>
+                    <input 
+                        formControlName="password"
+                        matInput 
+                        placeholder="Create new password" 
+                        type="password">
+                    <div  *ngIf="password?.invalid && password?.touched">
+                        <mat-error *ngIf="password?.errors?.['required']">
+                            Password is required..
+                        </mat-error>
+                        <mat-error *ngIf="password?.errors?.['pattern'] && currentRoute === routeP.slase+routeP.signup">
+                            Password must contain min one number and one uppercase and lowercase letter, 
+                            and at least 8 char & max 18 characters..
+                        </mat-error>
+                    </div>
+                </mat-form-field>
+                <mat-form-field 
+                    *ngIf="currentRoute === routeP.slase+routeP.signup" 
+                    appearance="outline" 
+                    class="full-width"
+                >
+                    <mat-label>Confirm Password</mat-label>
+                    <input 
+                        formControlName="confirmPass"
+                        matInput 
+                        placeholder="Confirm new password" 
+                        type="password">
+                    <div  *ngIf="confirmPass?.invalid && confirmPass?.touched">
+                    <mat-error *ngIf="confirmPass?.errors?.['required']">
+                        Confirm password is required..
+                    </mat-error>
+                </div>
+                <div  *ngIf="formValidation?.errors?.['misMatch']">
+                    <mat-error>
+                        Password and Confirm password dose not match..
+                    </mat-error>
+                </div>
+                </mat-form-field>
+                <div>
+                    <label *ngIf="currentRoute === routeP.slase+routeP.signup">
+                        Aready a user -> 
+                        <a [routerLink]="routeP.slase+routeP.login" class="link">
+                            login
+                        </a>
+                    </label>
+                    <label *ngIf="currentRoute === routeP.slase+routeP.login">
+                        Create account -> 
+                        <a [routerLink]="routeP.slase+routeP.signup" class="link">
+                            signup
+                        </a>
+                    </label>
+                    <label *ngIf="currentRoute === routeP.slase+routeP.login" class="link-right">
+                        <a [routerLink]="routeP.slase+routeP.forgotPassword" class="link">
+                            Forgot password
+                        </a>
+                    </label>
+                </div>
+                <hr>
+                <div>
+                    <button mat-raised-button color="primary" type="submit" class="full-width">
+                        {{currentRoute === routeP.slase+routeP.signup ? "Signup" : "Login"}}
+                    </button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

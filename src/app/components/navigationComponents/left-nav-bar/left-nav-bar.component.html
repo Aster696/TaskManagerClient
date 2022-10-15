@@ -1,0 +1,67 @@
+<mat-selection-list [multiple]="false" class="list">
+    <mat-list-option 
+        [routerLink]="routeP.home"
+        (click)="basicService.Drawer()"
+        class="list-item"
+    >
+        <mat-icon mat-list-icon>home</mat-icon>
+        Home
+    </mat-list-option>
+    <mat-list-option 
+        [routerLink]="routeP.about"
+        (click)="basicService.Drawer()"
+        class="list-item" 
+    >
+        <mat-icon mat-list-icon>info</mat-icon>
+        About
+    </mat-list-option>
+    <mat-list-option 
+        [routerLink]="routeP.contact"
+        (click)="basicService.Drawer()"    
+        class="list-item"
+    >
+        <mat-icon mat-list-icon>phone</mat-icon>
+        Contact
+    </mat-list-option>
+    <!-- <mat-list-option  
+        [matMenuTriggerFor]="menu"
+        class="list-item"
+    >
+        <mat-icon mat-list-icon>settings</mat-icon>
+        Setting
+    </mat-list-option> -->
+    <mat-list-option 
+        [routerLink]="routeP.login"
+        (click)="basicService.Drawer()" 
+        class="list-item"   
+    >
+        <mat-icon mat-list-icon>login</mat-icon>
+        Login
+    </mat-list-option>
+    <mat-list-option 
+        [routerLink]="routeP.signup"
+        (click)="basicService.Drawer()" 
+        class="list-item"   
+    >
+        <mat-icon mat-list-icon>person_add</mat-icon>
+        Signup
+    </mat-list-option>
+    <mat-list-option 
+        (click)="basicService.Drawer()"
+        class="logout"
+    >
+        <mat-icon mat-list-icon>logout</mat-icon>
+        Logout {{basicService.dark}}
+    </mat-list-option>
+</mat-selection-list>
+<!-- menu -->
+<mat-menu #menu="matMenu">
+    <button mat-menu-item class="menu-item full-width">
+        <mat-icon class="menu-item">dark_mode</mat-icon>
+        <span>Dark mode </span>
+        <mat-slide-toggle 
+            [checked]="basicService.dark"
+            (click)="basicService.darkMode()"
+        ></mat-slide-toggle>
+    </button>
+</mat-menu>

@@ -3,16 +3,66 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from 'src/shared/material/material/material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { TopNavBarComponent } from './components/navigationComponents/top-nav-bar/top-nav-bar.component';
+import { LeftNavBarComponent } from './components/navigationComponents/left-nav-bar/left-nav-bar.component';
+import { HomeComponent } from './components/basicComponents/home/home.component';
+import { AboutComponent } from './components/basicComponents/about/about.component';
+import { ContactComponent } from './components/basicComponents/contact/contact.component';
+import { PageNotFoundComponent } from './components/errorComponents/page-not-found/page-not-found.component';
+import { FooterComponent } from './components/basicComponents/footer/footer.component';
+import { FormComponent } from './components/userComponents/form/form.component';
+import { ProfileComponent } from './components/userComponents/profile/profile.component';
+import { AddTaskComponent } from './components/taskComponents/add-task/add-task.component';
+import { DisplayTasksComponent } from './components/taskComponents/display-tasks/display-tasks.component';
+import { UserRouteService } from 'src/shared/services/routes/userRoute/user-route.service';
+import { BasicService } from 'src/shared/services/basicService/basic.service';
+import { TaskRouteService } from 'src/shared/services/routes/taskRoute/task-route.service';
+import { UserControllerService } from 'src/shared/services/controllers/userController/user-controller.service';
+import { TaskControllerService } from 'src/shared/services/controllers/taskController/task-controller.service';
+import { SubTopNavBarComponent } from './components/navigationComponents/sub-top-nav-bar/sub-top-nav-bar.component';
+import { ForgotPasswordComponent } from './components/basicComponents/forgotPassword/forgot-password/forgot-password.component';
+import { ForgotPasswordOtpComponent } from './components/basicComponents/forgotPassword/forgot-password-otp/forgot-password-otp.component';
+import { ResetPasswordComponent } from './components/basicComponents/forgotPassword/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TopNavBarComponent,
+    LeftNavBarComponent,
+    HomeComponent,
+    AboutComponent,
+    ContactComponent,
+    PageNotFoundComponent,
+    FooterComponent,
+    FormComponent,
+    ProfileComponent,
+    AddTaskComponent,
+    DisplayTasksComponent,
+    SubTopNavBarComponent,
+    ForgotPasswordComponent,
+    ForgotPasswordOtpComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    BasicService,
+    UserRouteService,
+    TaskRouteService,
+    UserControllerService,
+    TaskControllerService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

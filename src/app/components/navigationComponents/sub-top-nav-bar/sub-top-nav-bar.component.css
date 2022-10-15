@@ -1,0 +1,16 @@
+.toolbar {
+    width: 100%;
+}
+
+.end-tab {
+    margin-left: auto;
+}
+
+.tab {
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 850px) {
+    
+}

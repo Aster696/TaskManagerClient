@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from 'src/shared/material/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TopNavBarComponent } from './components/navigationComponents/top-nav-bar/top-nav-bar.component';
 import { LeftNavBarComponent } from './components/navigationComponents/left-nav-bar/left-nav-bar.component';
 import { HomeComponent } from './components/basicComponents/home/home.component';
@@ -23,10 +23,13 @@ import { BasicService } from 'src/shared/services/basicService/basic.service';
 import { TaskRouteService } from 'src/shared/services/routes/taskRoute/task-route.service';
 import { UserControllerService } from 'src/shared/services/controllers/userController/user-controller.service';
 import { TaskControllerService } from 'src/shared/services/controllers/taskController/task-controller.service';
-import { SubTopNavBarComponent } from './components/navigationComponents/sub-top-nav-bar/sub-top-nav-bar.component';
 import { ForgotPasswordComponent } from './components/basicComponents/forgotPassword/forgot-password/forgot-password.component';
 import { ForgotPasswordOtpComponent } from './components/basicComponents/forgotPassword/forgot-password-otp/forgot-password-otp.component';
 import { ResetPasswordComponent } from './components/basicComponents/forgotPassword/reset-password/reset-password.component';
+import { TokenInterceptorInterceptor } from 'src/tokenInterceptor/token-interceptor.interceptor';
+import { UserAuthGuard } from 'src/auth/UserAuth/user-auth.guard';
+import { UserLoggedinAuthGuard } from 'src/auth/UserLoggedinAuth/user-loggedin-auth.guard';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,6 @@ import { ResetPasswordComponent } from './components/basicComponents/forgotPassw
     ProfileComponent,
     AddTaskComponent,
     DisplayTasksComponent,
-    SubTopNavBarComponent,
     ForgotPasswordComponent,
     ForgotPasswordOtpComponent,
     ResetPasswordComponent,
@@ -55,6 +57,7 @@ import { ResetPasswordComponent } from './components/basicComponents/forgotPassw
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    Ng2SearchPipeModule
   ],
   providers: [
     BasicService,
@@ -62,6 +65,13 @@ import { ResetPasswordComponent } from './components/basicComponents/forgotPassw
     TaskRouteService,
     UserControllerService,
     TaskControllerService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorInterceptor,
+      multi: true
+    },
+    UserAuthGuard,
+    UserLoggedinAuthGuard,
   ],
   bootstrap: [AppComponent]
 })

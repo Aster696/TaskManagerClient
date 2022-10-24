@@ -1,0 +1,9 @@
+.para:first-letter {
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+}

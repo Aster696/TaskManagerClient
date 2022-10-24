@@ -1,3 +1,16 @@
+.toolbar {
+    width: 100%;
+}
+
+.end-tab {
+    margin-left: auto;
+}
+
+.tab {
+    padding: 0 20px;
+    cursor: pointer;
+}
+
 .card {
     height: calc(100vh - 161px);
     overflow-y: scroll;
@@ -10,5 +23,14 @@
 }
 
 .expansion-panel {
-    margin-bottom: 10px;
+    margin: 5px 0;
+}
+
+.start {
+    position: absolute;
+    left: 0;
+}
+
+@media only screen and (max-width: 850px) {
+    
 }

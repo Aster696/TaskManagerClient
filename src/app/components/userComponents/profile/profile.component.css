@@ -1,0 +1,11 @@
+.container {
+    width: 100%;
+    height: calc(100vh - 65px);
+    display: flex;
+}
+
+.card {
+    width: 90%;
+    margin: auto;
+    color: cornflowerblue;
+}

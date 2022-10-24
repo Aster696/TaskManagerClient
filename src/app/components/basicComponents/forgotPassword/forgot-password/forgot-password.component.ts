@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { routePath } from 'src/shared/lib/routePath';
-import { BasicService } from 'src/shared/services/basicService/basic.service';
+import { UserModel } from 'src/shared/models/userModel';
+import { UserControllerService } from 'src/shared/services/controllers/userController/user-controller.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -12,15 +12,15 @@ import { BasicService } from 'src/shared/services/basicService/basic.service';
 export class ForgotPasswordComponent implements OnInit {
 
   constructor(
-    private router: Router,
     private fb: FormBuilder,
-    private basicService: BasicService,
+    private userControllerService: UserControllerService
   ) { }
 
   ngOnInit(): void {
   }
 
-  routeP = new routePath();
+  private routeP = new routePath();
+  private userModel = new UserModel();
 
   formValidation = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -31,7 +31,8 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.router.navigate([this.routeP.slase+this.routeP.forgotPasswordOtp])
+    this.userModel.email = this.formValidation.value.email || '';
+    this.userControllerService.forgotPassword(this.userModel);
   }
 
 }

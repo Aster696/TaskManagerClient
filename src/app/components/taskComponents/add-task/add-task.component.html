@@ -3,7 +3,7 @@
         <mat-icon>close</mat-icon>
     </button>
 </mat-dialog-actions>
-<h1 mat-dialog-title>Add Task</h1>
+<h1 mat-dialog-title>{{!taskControllerService.updateTaskId ? 'Add Task' : 'Update Task'}}</h1>
 <mat-dialog-content class="card">
     <form [formGroup]="formValidation" (ngSubmit)="onSubmit()">
         <mat-form-field 
@@ -12,16 +12,16 @@
         >
             <mat-label>Title</mat-label>
             <input
-                formControlName="title"
+                formControlName="taskName"
                 matInput 
                 placeholder="Enter your task title" 
                 type="text"
             >
-            <div *ngIf="title?.invalid && title?.touched">
-                <mat-error *ngIf="title?.errors?.['required']">
+            <div *ngIf="taskName?.invalid && taskName?.touched">
+                <mat-error *ngIf="taskName?.errors?.['required']">
                     Title is required..
                 </mat-error>
-                <mat-error *ngIf="title?.errors?.['maxlength']">
+                <mat-error *ngIf="taskName?.errors?.['maxlength']">
                     Title can only have 20 letters..
                 </mat-error>
             </div>
@@ -63,8 +63,14 @@
         </mat-form-field>
         <hr>
         <div>
-            <button mat-raised-button color="primary" type="submit" class="full-width btn">
-                Add
+            <button 
+                mat-dialog-close 
+                mat-raised-button 
+                color="primary" 
+                type="submit" 
+                class="full-width btn"
+            >
+                {{!taskControllerService.updateTaskId ? 'Add' : 'Update'}}
             </button>
         </div>
     </form>

@@ -47,11 +47,13 @@
                     </div>
                 </mat-form-field>
                 <mat-form-field appearance="outline" class="full-width">
-                    <mat-label>Password</mat-label>
+                    <mat-label>{{currentRoute === routeP.slase+routeP.signup ? 'New' : ''}} 
+                        Password
+                    </mat-label>
                     <input 
                         formControlName="password"
                         matInput 
-                        placeholder="Create new password" 
+                        placeholder="{{currentRoute === routeP.slase+routeP.signup ? 'Create new password' : 'Enter your password'}}" 
                         type="password">
                     <div  *ngIf="password?.invalid && password?.touched">
                         <mat-error *ngIf="password?.errors?.['required']">
@@ -89,13 +91,13 @@
                     <label *ngIf="currentRoute === routeP.slase+routeP.signup">
                         Aready a user -> 
                         <a [routerLink]="routeP.slase+routeP.login" class="link">
-                            login
+                            Login
                         </a>
                     </label>
                     <label *ngIf="currentRoute === routeP.slase+routeP.login">
                         Create account -> 
                         <a [routerLink]="routeP.slase+routeP.signup" class="link">
-                            signup
+                            Signup
                         </a>
                     </label>
                     <label *ngIf="currentRoute === routeP.slase+routeP.login" class="link-right">

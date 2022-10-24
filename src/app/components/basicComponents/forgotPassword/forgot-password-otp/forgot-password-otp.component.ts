@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import jwtDecode from 'jwt-decode';
 import { routePath } from 'src/shared/lib/routePath';
 import { BasicService } from 'src/shared/services/basicService/basic.service';
+import { PopupService } from 'src/shared/services/popupService/popup.service';
 
 @Component({
   selector: 'app-forgot-password-otp',
@@ -15,12 +17,16 @@ export class ForgotPasswordOtpComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private basicService: BasicService,
+    private route: ActivatedRoute,
+    private popupService: PopupService,
   ) { }
 
   ngOnInit(): void {
+    this.token = this.route.snapshot.paramMap.get('token');
   }
 
   routeP = new routePath();
+  token: any;
 
   formValidation = this.fb.group({
     otp: ['', [Validators.required]],
@@ -31,7 +37,12 @@ export class ForgotPasswordOtpComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.router.navigate([this.routeP.slase+this.routeP.resetPassword])
+    let resetPassToken: any = jwtDecode(this.token);
+    if(this.formValidation.value.otp === resetPassToken.otp) {
+      this.popupService.otpSuccessAlert(resetPassToken.id);
+    }else {
+      this.popupService.invalidOtpAlert();
+    }
   }
 
 }

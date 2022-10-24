@@ -1,26 +1,63 @@
-<app-sub-top-nav-bar></app-sub-top-nav-bar>
+<mat-toolbar class="toolbar">
+    <span></span>
+    <div class="center-tab">
+        <mat-form-field 
+            appearance="standard" 
+            class="full-width"
+        >
+            <!-- <mat-label>Search</mat-label> -->
+            <input
+                [(ngModel)]="searchTask"
+                matInput 
+                placeholder="Search task" 
+                type="search"
+            >
+        </mat-form-field>
+    </div>
+    <div class="end-tab">
+        <button [matBadge]="2" mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>notifications</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+                <span>Notification 1</span>
+            </button>
+            <button mat-menu-item>
+                <span>Notification 2</span>
+            </button>
+        </mat-menu> 
+    </div>
+</mat-toolbar>
 <mat-card class="card">
     <button 
-        (click)="openTaskForm()"
+        (click)="openTaskForm('')"
         mat-stroked-button 
         class="full-width add-button"
     >
         <mat-icon>add</mat-icon>
     </button>
     <mat-card-content>
-        <mat-accordion *ngFor="let i of [].constructor(100)">
+        <mat-accordion *ngFor="let task of taskControllerService.Tasks | filter: searchTask">
             <mat-expansion-panel (opened)="true" (closed)="false" class="expansion-panel">
                 <mat-expansion-panel-header>
-                <mat-panel-title>
-                    Self aware panel
-                </mat-panel-title>
-                <mat-panel-description>
-                    Date/ time
-                </mat-panel-description>
+                    <mat-panel-title>
+                        {{task.taskName}}
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        {{task.date_time | date: 'medium'}}
+                    </mat-panel-description>
                 </mat-expansion-panel-header>
                 <p>
-                    I'm visible because I am open
+                    {{task.description}}
                 </p>
+                <mat-action-row>
+                    <button (click)="taskControllerService.deleteTask(task._id)" mat-mini-fab color="warn" class="start">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    <button (click)="openTaskForm(task._id)" mat-mini-fab color="primary">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </mat-action-row>
             </mat-expansion-panel>
         </mat-accordion>
     </mat-card-content>

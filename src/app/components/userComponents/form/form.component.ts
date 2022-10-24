@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { formValidators } from 'src/shared/formValidators/formValidators';
 import { pattern } from 'src/shared/lib/pattern';
 import { routePath } from 'src/shared/lib/routePath';
+import { UserModel } from 'src/shared/models/userModel';
+import { UserControllerService } from 'src/shared/services/controllers/userController/user-controller.service';
 
 @Component({
   selector: 'app-form',
@@ -14,7 +16,8 @@ export class FormComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private userControllerService: UserControllerService,
   ) { }
 
   ngOnInit(): void {
@@ -25,6 +28,7 @@ export class FormComponent implements OnInit {
   currentRoute: string;
   pat = new pattern();
   formValidators = new formValidators();
+  userModel = new UserModel();
 
   formValidation = this.fb.group({
     userName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
@@ -52,11 +56,18 @@ export class FormComponent implements OnInit {
   }
 
   signup(): void {
-    console.log("signup");
+    this.userModel.userName = this.formValidation.value.userName || '';
+    this.userModel.email = this.formValidation.value.email || '';
+    this.userModel.password = this.formValidation.value.password || '';
+    this.userControllerService.register(this.userModel);
+    this.formValidation.reset();
   }
 
   login(): void {
-    console.log("login");
+    this.userModel.email = this.formValidation.value.email || '';
+    this.userModel.password = this.formValidation.value.password || '';
+    this.userControllerService.login(this.userModel);
+    this.formValidation.reset();
   }
 
 }

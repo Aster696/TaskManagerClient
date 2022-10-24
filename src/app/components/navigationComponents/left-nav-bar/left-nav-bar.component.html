@@ -1,3 +1,18 @@
+<mat-card class="card">
+    <mat-card-header>
+        <img 
+            [src]="" 
+            alt=""
+            mat-card-avatar
+        />
+        <mat-card-title>
+            {{userControllerService.User.userName}}
+        </mat-card-title>
+        <mat-card-subtitle [routerLink]="routeP.slase+routeP.profile" class="link">
+            Account settings..
+        </mat-card-subtitle>
+    </mat-card-header>
+</mat-card>
 <mat-selection-list [multiple]="false" class="list">
     <mat-list-option 
         [routerLink]="routeP.home"
@@ -23,14 +38,15 @@
         <mat-icon mat-list-icon>phone</mat-icon>
         Contact
     </mat-list-option>
-    <!-- <mat-list-option  
-        [matMenuTriggerFor]="menu"
+    <mat-list-option  
+        (click)="basicService.onLinkClick('https://www.buymeacoffee.com/RockBox7000')"
         class="list-item"
     >
-        <mat-icon mat-list-icon>settings</mat-icon>
-        Setting
-    </mat-list-option> -->
+        <mat-icon mat-list-icon>payments</mat-icon>
+        Donation
+    </mat-list-option>
     <mat-list-option 
+        *ngIf="!userRouteService.LoggedIn()"
         [routerLink]="routeP.login"
         (click)="basicService.Drawer()" 
         class="list-item"   
@@ -39,6 +55,7 @@
         Login
     </mat-list-option>
     <mat-list-option 
+        *ngIf="!userRouteService.LoggedIn()"
         [routerLink]="routeP.signup"
         (click)="basicService.Drawer()" 
         class="list-item"   
@@ -47,11 +64,12 @@
         Signup
     </mat-list-option>
     <mat-list-option 
-        (click)="basicService.Drawer()"
+        *ngIf="userRouteService.LoggedIn()"
+        (click)="userRouteService.LogOut()"
         class="logout"
     >
         <mat-icon mat-list-icon>logout</mat-icon>
-        Logout {{basicService.dark}}
+        Logout
     </mat-list-option>
 </mat-selection-list>
 <!-- menu -->

@@ -22,6 +22,10 @@
     cursor: pointer;
 }
 
+.logout {
+    color: orangered;
+}
+
 @media only screen and (max-width: 850px) {
     .center-tab {
         display: none;

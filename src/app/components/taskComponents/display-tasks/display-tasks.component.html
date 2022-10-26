@@ -37,7 +37,7 @@
         <mat-icon>add</mat-icon>
     </button>
     <mat-card-content>
-        <mat-accordion *ngFor="let task of taskControllerService.Tasks?.reverse()|filter: searchTask">
+        <mat-accordion *ngFor="let task of taskControllerService.Tasks?.slice()?.reverse()|filter: searchTask">
             <mat-expansion-panel (opened)="true" (closed)="false" class="expansion-panel">
                 <mat-expansion-panel-header>
                     <mat-panel-title>

@@ -26,7 +26,7 @@ export class AddTaskComponent implements OnInit {
       this.taskControllerService.displayTask(this.taskControllerService.updateTaskId);
       setTimeout(() => {
         this.setValue();
-      }, 500);
+      }, 700);
     }
   }
 

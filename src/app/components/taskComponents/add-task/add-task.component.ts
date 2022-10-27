@@ -33,7 +33,7 @@ export class AddTaskComponent implements OnInit {
   taskModel = new TaskModel();
 
   formValidation = this.fb.group({
-    taskName: ['', [Validators.required, Validators.maxLength(20)]],
+    taskName: ['', [Validators.required, Validators.maxLength(40)]],
     description: ['', [Validators.maxLength(5000)]],
     date_time: ['', [Validators.required]],
   });

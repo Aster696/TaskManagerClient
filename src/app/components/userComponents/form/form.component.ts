@@ -31,7 +31,7 @@ export class FormComponent implements OnInit {
   userModel = new UserModel();
 
   formValidation = this.fb.group({
-    userName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
+    userName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.pattern(this.pat.password)]],
     confirmPass: ['', [Validators.required]],

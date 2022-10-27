@@ -33,7 +33,7 @@ export class ProfileComponent implements OnInit {
   private userModel = new UserModel();
 
   formValidation = this.fb.group({
-    userName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
+    userName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
   }); 
 
   get userName() {

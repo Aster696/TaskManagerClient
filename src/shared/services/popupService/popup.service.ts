@@ -121,7 +121,7 @@ export class PopupService {
   }
 
   // task page alerts
-  taskAddedSuccessAlert() {
+  taskAddedSuccessAlert(): void {
     Swal.fire({
       title: 'Task added successfully!!!',
       icon: 'success',
@@ -143,9 +143,9 @@ export class PopupService {
     Swal.fire({
       title: 'Do you want to delete the task?',
       showDenyButton: true,
-      showCancelButton: true,
+      showCancelButton: false,
       confirmButtonText: 'Yes',
-      denyButtonText: `No`,
+      denyButtonText: `Cancel`,
     }).then((result) => {
       if (result.isConfirmed) {
         this.taskControllerService.deleteTask(id);

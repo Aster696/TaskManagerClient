@@ -51,7 +51,7 @@
                     {{task.description}}
                 </p>
                 <mat-action-row>
-                    <button (click)="popupService.confirmTaskDeleteAlert(task._id)" mat-mini-fab color="warn" class="start">
+                    <button (click)="taskControllerService.confirmTaskDeleteAlert(task._id)" mat-mini-fab color="warn" class="start">
                         <mat-icon>delete</mat-icon>
                     </button>
                     <button (click)="openTaskForm(task._id)" mat-mini-fab color="primary">

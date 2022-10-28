@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TaskModel } from 'src/shared/models/taskModel';
+import Swal from 'sweetalert2';
 import { PopupService } from '../../popupService/popup.service';
 import { TaskRouteService } from '../../routes/taskRoute/task-route.service';
 import { UserRouteService } from '../../routes/userRoute/user-route.service';
@@ -62,6 +63,22 @@ export class TaskControllerService {
       this.popupService.somethingWhentWrongAlert();
       // console.log(error);
     }
+  }
+
+  confirmTaskDeleteAlert(id: string) {
+    Swal.fire({
+      title: 'Do you want to delete the task?',
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: 'Yes',
+      denyButtonText: `Cancel`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.deleteTask(id);
+      } else if (result.isDenied) {
+        this.popupService.taskNotDeletedAlert();
+      }
+    });
   }
 
   deleteTask(id: string) {

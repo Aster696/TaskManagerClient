@@ -10,8 +10,7 @@ import { TaskControllerService } from '../controllers/taskController/task-contro
 export class PopupService {
 
   constructor(
-    private router: Router,
-    private taskControllerService: TaskControllerService
+    private router: Router
   ) { }
 
   private routeP = new routePath();
@@ -137,22 +136,6 @@ export class PopupService {
       timer: 3000,
       toast: true,
     });
-  }
-
-  confirmTaskDeleteAlert(id: string) {
-    Swal.fire({
-      title: 'Do you want to delete the task?',
-      showDenyButton: true,
-      showCancelButton: false,
-      confirmButtonText: 'Yes',
-      denyButtonText: `Cancel`,
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this.taskControllerService.deleteTask(id);
-      } else if (result.isDenied) {
-        this.taskNotDeletedAlert();
-      }
-    })
   }
 
   taskDeletedSuccessAlert() {

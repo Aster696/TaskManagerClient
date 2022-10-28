@@ -121,7 +121,7 @@ export class PopupService {
   }
 
   // task page alerts
-  taskAddedSuccessAlert(): void {
+  taskAddedSuccessAlert() {
     Swal.fire({
       title: 'Task added successfully!!!',
       icon: 'success',

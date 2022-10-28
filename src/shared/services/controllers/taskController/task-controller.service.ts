@@ -70,7 +70,7 @@ export class TaskControllerService {
       .deleteTask(id)
       .subscribe(
         res => {
-          this.popupService.taskdeletedSuccessAlert();
+          this.popupService.taskDeletedSuccessAlert();
           this.displayTasks();
         }, error => {
           this.popupService.somethingWhentWrongAlert();

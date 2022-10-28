@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { routePath } from 'src/shared/lib/routePath';
 import Swal from 'sweetalert2';
+import { TaskControllerService } from '../controllers/taskController/task-controller.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,8 @@ import Swal from 'sweetalert2';
 export class PopupService {
 
   constructor(
-    private router: Router
+    private router: Router,
+    private taskControllerService: TaskControllerService
   ) { }
 
   private routeP = new routePath();
@@ -137,10 +139,35 @@ export class PopupService {
     });
   }
 
-  taskdeletedSuccessAlert() {
+  confirmTaskDeleteAlert(id: string) {
+    Swal.fire({
+      title: 'Do you want to delete the task?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      denyButtonText: `No`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.taskControllerService.deleteTask(id);
+      } else if (result.isDenied) {
+        this.taskNotDeletedAlert();
+      }
+    })
+  }
+
+  taskDeletedSuccessAlert() {
     Swal.fire({
       title: 'Task deleted successfully!!!',
       icon: 'success',
+      timer: 3000,
+      toast: true,
+    });
+  }
+
+  taskNotDeletedAlert() {
+    Swal.fire({
+      title: 'Task not deleted!',
+      icon: 'info',
       timer: 3000,
       toast: true,
     });

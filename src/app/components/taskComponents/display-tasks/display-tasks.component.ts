@@ -16,7 +16,7 @@ export class DisplayTasksComponent implements OnInit {
     private dialog: MatDialog,
     public taskControllerService: TaskControllerService,
     private userRouteService: UserRouteService,
-    private popupService: PopupService,
+    public popupService: PopupService,
   ) { }
 
   ngOnInit(): void {

@@ -1,0 +1,19 @@
+<mat-dialog-actions align="end">
+    <button mat-icon-button color="warn" mat-dialog-close>
+        <mat-icon>close</mat-icon>
+    </button>
+</mat-dialog-actions>
+<h1 mat-dialog-title>Avatars</h1>
+<mat-dialog-content class="dialog">
+    <mat-grid-list cols="3" rowHeight="80px" gutterSize="5px">
+        <mat-grid-tile *ngFor="let avatar of avatars">
+            <mat-card (click)="onSelect(routeP.server_url+avatar.route)" mat-dialog-close class="card" matRipple>
+                <img 
+                    [src]="routeP.server_url+avatar.route" 
+                    alt=""
+                    mat-card-avatar
+                />
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</mat-dialog-content>

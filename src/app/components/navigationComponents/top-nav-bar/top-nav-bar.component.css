@@ -1,0 +1,31 @@
+.toolbar {
+    width: 100%;
+    border-bottom: 1px solid cornflowerblue;
+}
+
+.title {
+    cursor: pointer;
+}
+
+.center-tab {
+   margin-left: 30%;
+}
+
+.end-tab {
+    margin-left: auto;
+}
+
+.tab {
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+.logout {
+    color: orangered;
+}
+
+@media only screen and (max-width: 850px) {
+    .center-tab {
+        display: none;
+    }
+}

@@ -1,0 +1,95 @@
+<mat-card class="cornflowerblue">
+    <mat-card-header>
+        <mat-card-title>
+            About
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <p class="para">
+            Hello, this website is created to keep track of your daily tasks. Currently the site
+            site is in Alpha state so, you guys can check how it works and provide me feedback
+            on what I should add or change features.
+        </p>
+        <p class="para">
+            If you guys like my work and want to help me grow you can donate me 
+            <a (click)="basicService.onLinkClick('https://www.buymeacoffee.com/RockBox7000')" class="link">
+                here
+            </a>. 
+            More updates will be comming soon.
+        </p>
+    </mat-card-content>
+    <mat-card-header>
+        <mat-card-title>
+            Versions
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-accordion>
+            <mat-expansion-panel (opened)="true" (closed)="false" class="expansion-panel">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Alpha
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Version: 0.1.0
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <p>
+                    <span class="title">Pages</span>
+                    <mat-list role="list">
+                        <mat-list-item role="listitem">Home page</mat-list-item>
+                        <mat-list-item role="listitem">About page</mat-list-item>
+                        <mat-list-item role="listitem">Contact page</mat-list-item>
+                        <mat-list-item role="listitem">Signup page</mat-list-item>
+                        <mat-list-item role="listitem">Login page</mat-list-item>
+                        <mat-list-item role="listitem">Forget password page</mat-list-item>
+                        <mat-list-item role="listitem">OTP page</mat-list-item>
+                        <mat-list-item role="listitem">Reset password page</mat-list-item>
+                    </mat-list>
+                    <mat-divider></mat-divider>
+                    <span class="title">Features</span>
+                    <mat-list role="list">
+                        <mat-list-item role="listitem">If user forgets password can reset the password</mat-list-item>
+                        <mat-list-item role="listitem">User Profile page</mat-list-item>
+                        <mat-list-item role="listitem">User can update profile details</mat-list-item>
+                        <mat-list-item role="listitem">Change password through profile page</mat-list-item>
+                        <mat-list-item role="listitem">Once logged in user can add tasks</mat-list-item>
+                        <mat-list-item role="listitem">Update task</mat-list-item>
+                        <mat-list-item role="listitem">Delete task</mat-list-item>
+                        <mat-list-item role="listitem">Display tasks</mat-list-item>
+                    </mat-list>
+                </p>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </mat-card-content>
+    <!-- version alpha 1.0.0 20-11-2022 -->
+    <mat-card-content>
+        <mat-accordion>
+            <mat-expansion-panel (opened)="true" (closed)="false" class="expansion-panel">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Alpha
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Version: 1.0.0
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <p>
+                    <span class="title">New Features</span>
+                    <mat-list role="list">
+                        <mat-list-item role="listitem">Now user will not require to add date time. Only title is required</mat-list-item>
+                        <mat-list-item role="listitem">User will receive email notification regarding their task</mat-list-item>
+                        <mat-list-item role="listitem">To activate email notification. Go to account setting their will be a option to turn on email notification</mat-list-item>
+                        <mat-list-item role="listitem">Avatars are added. Now user can select avatar form the account settings</mat-list-item>
+                        <mat-list-item role="listitem">UI as been updated, made it more user friendly</mat-list-item>
+                        <mat-list-item role="listitem">Notification has be added for task in bell icon</mat-list-item>
+                        <mat-list-item role="listitem">Once the user task time is met, the task are added in bell icon menu</mat-list-item>
+                        <mat-list-item role="listitem">User can remove the bell notification by clicking on them</mat-list-item>
+                        <mat-list-item role="listitem">Check option is added in task. Once the user is done with their task he/she can click on the check option to mark the task as done</mat-list-item>
+                        <mat-list-item role="listitem">User can also mark the task as undone as well, incase user want's to repeat the task</mat-list-item>
+                    </mat-list>
+                </p>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </mat-card-content>
+</mat-card>

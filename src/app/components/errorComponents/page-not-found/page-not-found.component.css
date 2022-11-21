@@ -1,0 +1,22 @@
+.container {
+    height: 80vh;
+}
+
+.card {
+    margin: 0 auto;
+    width: 90%;
+    height: 90%;
+    background-color: wheat;
+    border-radius: 3rem;
+    text-align: center;
+}
+
+.title {
+    position: absolute;
+    top: 40%;
+    bottom: 40%;
+    right: 0;
+    left: 0;
+    font-size: 40px;
+    padding: 10px;
+}

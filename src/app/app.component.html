@@ -1,0 +1,26 @@
+<app-top-nav-bar></app-top-nav-bar>
+<mat-drawer-container *ngIf="(basicService.isXSmall$ | async) ? false : true" class="container">
+    <mat-drawer 
+        mode="side" 
+        [opened]="basicService.toggle" 
+        class="drawer"
+    >
+        <app-left-nav-bar></app-left-nav-bar>
+    </mat-drawer>
+    <mat-drawer-content class="content">
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>
+<!-- mobile view -->
+<mat-drawer-container *ngIf="(basicService.isXSmall$ | async) ? true : false" class="container">
+    <mat-drawer 
+        mode="over" 
+        [opened]="!basicService.toggle" 
+        class="drawer"
+    >
+        <app-left-nav-bar></app-left-nav-bar>
+    </mat-drawer>
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>

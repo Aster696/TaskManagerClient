@@ -1,0 +1,27 @@
+.card {
+    border-right: 1px solid cornflowerblue;
+    border-radius: 0;
+}
+
+.list {
+    height: calc(100vh - 165px);
+    border-right: 1px solid cornflowerblue;
+}
+
+.list-item {
+    color: cornflowerblue;
+}
+
+.menu {
+    
+}
+
+.menu-item {
+    color: cornflowerblue;
+}
+
+.logout {
+    position: absolute;
+    bottom: 0;
+    color: orangered;
+}

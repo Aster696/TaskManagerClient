@@ -1,0 +1,13 @@
+.card {
+    width: 300px;
+}
+
+.btn {
+    margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    .card {
+        width: 65vw;
+    }
+}

@@ -1,0 +1,80 @@
+<mat-toolbar class="toolbar">
+    <span></span>
+    <div class="center-tab">
+        <mat-form-field 
+            appearance="standard" 
+            class="full-width"
+        >
+            <!-- <mat-label>Search</mat-label> -->
+            <input
+                [(ngModel)]="searchTask"
+                matInput 
+                placeholder="Search task 🔍" 
+                type="search"
+            >
+        </mat-form-field>
+    </div>
+    <div *ngIf="userRouteService.LoggedIn()" class="end-tab">
+        <button 
+            [matBadge]="userControllerService.Notifications.length" 
+            [matBadgeHidden]="userControllerService.Notifications.length === 0"
+            [matMenuTriggerFor]="menu"
+            mat-icon-button 
+        >
+            <mat-icon>notifications</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <span 
+                *ngFor="let notification of userControllerService.Notifications?.slice()?.reverse()" 
+                (click)="navigateToSection(notification._id); userControllerService.removeNotification(notification._id)"
+                mat-menu-item
+            >
+                <mat-icon>fact_check</mat-icon>
+                <span>{{notification.taskName}}</span>
+            </span>
+        </mat-menu> 
+    </div>
+</mat-toolbar>
+<mat-card class="card">
+    <button 
+        (click)="openTaskForm('')"
+        mat-raised-button 
+        class="full-width add-button"
+    >
+        <mat-icon>add</mat-icon>
+    </button>
+    <mat-card-content>
+        <mat-accordion 
+            *ngFor="let task of taskControllerService.Tasks?.slice()?.reverse()|filter: searchTask"
+            id="{{task._id}}"   
+        >
+            <mat-expansion-panel (opened)="true" (closed)="false" class="expansion-panel">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{task.taskName}}
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        {{task.date_time | date: 'medium'}}
+                        <mat-icon [ngClass]="task.checked ? 'btn-text-success':'btn-text-accent'" class="end">
+                            {{task.checked ? 'done':'close'}}
+                        </mat-icon>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <p>
+                    {{task.description}}
+                </p>
+                <mat-action-row>
+                    <button (click)="taskControllerService.confirmTaskDeleteAlert(task._id)" mat-mini-fab color="warn" class="start">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    <button (click)="openTaskForm(task._id)" mat-mini-fab color="primary">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button (click)="checkTask(task)" mat-mini-fab [ngClass]="task.checked ? 'btn-success':''" type="button">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                </mat-action-row>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </mat-card-content>
+</mat-card>

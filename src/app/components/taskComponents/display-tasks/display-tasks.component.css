@@ -1,0 +1,53 @@
+.toolbar {
+    width: 100%;
+}
+
+.end-tab {
+    margin-left: auto;
+}
+
+.tab {
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+.card {
+    height: calc(100vh - 161px);
+    overflow-y: scroll;
+}
+
+.add-button {
+    margin-bottom: 10px;
+    color: white;
+    background-color: #4BB543;
+}
+
+.expansion-panel {
+    margin: 5px 0;
+}
+
+.start {
+    position: absolute;
+    left: 0;
+}
+
+.end {
+    position: absolute;
+    right: 50px;
+}
+
+.btn-success {
+    background-color: #4BB543;
+}
+
+.btn-text-success {
+    color: #4BB543;
+}
+
+.btn-text-accent {
+    color: #FF4081;
+}
+
+@media only screen and (max-width: 850px) {
+    
+}

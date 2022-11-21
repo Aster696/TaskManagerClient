@@ -1,0 +1,22 @@
+<mat-toolbar class="nav-color toolbar">
+    <button mat-icon-button (click)="basicService.Drawer()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span [routerLink]="routeP.home" class="title">Tasker's</span>
+    <div class="center-tab">
+        <span [routerLink]="routeP.home" class="tab">Home</span>
+        <span [routerLink]="routeP.about" class="tab">About</span>
+        <span [routerLink]="routeP.contact" class="tab">Contact</span>
+    </div>
+    <div class="end-tab">
+        <span *ngIf="!userRouteService.LoggedIn()" [routerLink]="routeP.login" class="tab">
+            Login
+        </span>
+        <span *ngIf="!userRouteService.LoggedIn()" [routerLink]="routeP.signup" class="tab">
+            Signup
+        </span>
+        <span *ngIf="userRouteService.LoggedIn()" (click)="userRouteService.LogOut()" [routerLink]="routeP.login" class="tab logout">
+            Logout
+        </span>
+    </div>
+</mat-toolbar>

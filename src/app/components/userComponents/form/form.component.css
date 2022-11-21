@@ -1,0 +1,26 @@
+.container {
+    width: 100%;
+    height: calc(100vh - 65px);
+    display: flex;
+}
+
+.card {
+    width: 300px;
+    margin: auto;
+    color: cornflowerblue;
+}
+
+.link-right {
+    float: right;
+}
+
+.option {
+    /* margin-top: 10px; */
+}
+
+@media only screen and (max-width: 600px) {
+    .card {
+        width: 90%;
+        margin: auto;
+    }
+}

@@ -14,6 +14,7 @@
 .card {
     height: calc(100vh - 161px);
     overflow-y: scroll;
+    border-radius: 0;
 }
 
 .add-button {
@@ -49,5 +50,9 @@
 }
 
 @media only screen and (max-width: 850px) {
-    
+    .card {
+        height: calc(100vh - 145px);
+        overflow-y: scroll;
+        border-radius: 0;
+    }
 }

@@ -1,11 +1,11 @@
 .card {
-    border-right: 1px solid cornflowerblue;
+    /* border-right: 1px solid cornflowerblue; */
     border-radius: 0;
 }
 
 .list {
     height: calc(100vh - 165px);
-    border-right: 1px solid cornflowerblue;
+    /* border-right: 1px solid cornflowerblue; */
 }
 
 .list-item {

@@ -1,1 +1,46 @@
-footer
+<footer class="footer">
+    <div class="footer-content">
+        <h3 class="title">Tasker's</h3>
+        <p class="footer-para">
+            Tasker's make your life easy you can create your own task list on day to day bases
+            you will also receive email notifications regarding your task on the time you have set.
+            Easy to use and now can download the app on your Mobile or Pc.
+        </p>
+        <ul class="socials">
+            <li (click)="basicService.onLinkClick('https://www.facebook.com/aster.rebeiro.9/')">
+                <mat-icon class="icon"><i class="fa fa-facebook"></i></mat-icon>
+            </li>
+            <li (click)="basicService.onLinkClick('https://www.instagram.com/asterrebeiro/')">
+                <mat-icon class="icon"><i class="fa fa-instagram"></i></mat-icon>
+            </li>
+            <li (click)="basicService.onLinkClick('https://github.com/Aster696')">
+                <mat-icon class="icon"><i class="fa fa-github"></i></mat-icon>
+            </li>
+            <li [routerLink]="routeP.slase+routeP.contact">
+                <mat-icon class="icon"><i class="fa fa-envelope"></i></mat-icon>
+            </li>
+            <li (click)="basicService.onLinkClick('https://www.linkedin.com/in/aster-rebeiro-308125206/')">
+                <mat-icon class="icon"><i class="fa fa-linkedin"></i></mat-icon>
+            </li>
+        </ul>
+    </div>
+    <div class="footer-bottom">
+        <p>Copyright &copy;2022 <a (click)="basicService.onLinkClick('')">Aster R</a></p>
+        <div class="footer-menu">
+            <ul class="f-menu">
+                <li [routerLink]="routeP.slase+routeP.home">
+                    <a>Home</a>
+                </li>
+                <li [routerLink]="routeP.slase+routeP.about">
+                    <a>About</a>
+                </li>
+                <li [routerLink]="routeP.slase+routeP.contact">
+                    <a>Contact</a>
+                </li>
+                <li (click)="basicService.onLinkClick('')">
+                    <a>Portfolio</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>

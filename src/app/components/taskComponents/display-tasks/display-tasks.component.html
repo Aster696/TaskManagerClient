@@ -54,7 +54,8 @@
                         {{task.taskName}}
                     </mat-panel-title>
                     <mat-panel-description>
-                        {{task.date_time | date: 'medium'}}
+                        {{task.date_time | date: 'MMM d, yyyy'}} <br/>
+                        {{task.date_time | date: 'h:mm a'}}
                         <mat-icon [ngClass]="task.checked ? 'btn-text-success':'btn-text-accent'" class="end">
                             {{task.checked ? 'done':'close'}}
                         </mat-icon>

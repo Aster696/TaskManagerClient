@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1668991858090,
+  "timestamp": 1669580342925,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main.953b9170fc0b3ce3.js",
+        "/main.7d7d8e00e0629f92.js",
         "/manifest.webmanifest",
         "/polyfills.258847f8d700d602.js",
         "/runtime.e80e6376f0ee4130.js",
@@ -54,9 +54,9 @@
     "/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "/assets/logo/TaskManagerLogo.jpeg": "a37ee1a3d79ed0433b3e33a54c8d1ffe9e15d0a0",
     "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/index.html": "19ebf5520e7b7c7df4cd7b9029b5c09c24ffbeb2",
-    "/main.953b9170fc0b3ce3.js": "56aae68f2422c7196a245e10c09d7dffc919f8dd",
-    "/manifest.webmanifest": "f4c23aa7efd53139a4f40f542799eb3e9b6eddaf",
+    "/index.html": "598a19f908df69f47eeae3454b844ad7640423d7",
+    "/main.7d7d8e00e0629f92.js": "a6e9ec3f421d54421426bc3f4973d90a9323657d",
+    "/manifest.webmanifest": "193ddc70e2a2434e96a19c7ffe93c23495c9a5b6",
     "/polyfills.258847f8d700d602.js": "4e1637029868223e187a321dc5bc0174825dce67",
     "/runtime.e80e6376f0ee4130.js": "a9c1e701781ddd07fa2bd8abf4dda7f7c829b0ff",
     "/styles.02af4ff1ca7617b9.css": "7af1901d74ff7d8d365e9ecd52f8b38122b50273"

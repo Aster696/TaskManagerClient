@@ -16,7 +16,7 @@ export class routePath {
     displayTasks: string = 'display-tasks';
 // server route
     // server_url: string = 'http://localhost:5700';
-    server_url: string = 'https://dead-cyan-cougar-kit.cyclic.app';
+    server_url: string = 'https://plain-gold-pronghorn.cyclic.app';
     // server_url: string = 'https://a7-task-manager-server.herokuapp.com';
     // user route
         registerServer = '/user/register';

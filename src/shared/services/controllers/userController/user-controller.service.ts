@@ -130,9 +130,9 @@ export class UserControllerService {
       .subscribeToNotification(formData)
       .subscribe(
         res => {
-          console.log(res);
+          // console.log(res);
         },error => {
-          console.log(error);
+          // console.log(error);
         }
       );
     } catch (error) {

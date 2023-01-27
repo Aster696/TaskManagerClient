@@ -16,6 +16,7 @@ export class routePath {
     displayTasks: string = 'display-tasks';
 // server route
     // server_url: string = 'http://localhost:5700';
+    // server_url: string = 'https://32a5-103-171-211-202.in.ngrok.io';
     server_url: string = 'https://plain-gold-pronghorn.cyclic.app';
     // server_url: string = 'https://a7-task-manager-server.herokuapp.com';
     // user route
@@ -24,6 +25,7 @@ export class routePath {
         updateUserServer = '/user/update-user/';//:id
         deleteUserServer = '/user/delete-user/';//:id
         displayUserServer = '/user/display-user/'//:id
+        subscribeToNotification = '/user/subscribe-to-notification/';//:id
         displayNotificationsServer = '/user/display-notifications/';//:id
         removeNotificationServer = '/user/remove-notification/';//:id
         forgotPasswordServer = '/user/forgot-password';

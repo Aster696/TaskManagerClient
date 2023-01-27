@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import * as moment from 'moment';
 import { TaskModel } from 'src/shared/models/taskModel';
 import { TaskControllerService } from 'src/shared/services/controllers/taskController/task-controller.service';
 import { PopupService } from 'src/shared/services/popupService/popup.service';
@@ -59,6 +60,7 @@ export class AddTaskComponent implements OnInit {
     if(this.formValidation.value.date_time){
       this.taskModel.date_time = this.formValidation.value.date_time || '';
     }
+    this.taskModel.timezone = new Date().getTimezoneOffset().toString();
   }
 
   setValue() {

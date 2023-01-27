@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'TaskManagerClient';
 
   constructor(
-    public basicService: BasicService
+    public basicService: BasicService,
   ) { }
 
 }

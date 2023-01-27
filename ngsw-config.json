@@ -26,5 +26,10 @@
         ]
       }
     }
-  ]
+  ], "dataGroups": [{
+    "name": "api-call",
+    "urls": [
+      "http://localhost:5700"
+    ]
+  }]
 }

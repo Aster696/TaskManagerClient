@@ -4,6 +4,7 @@ export class TaskModel {
     taskName: string;
     description: string;
     date_time: string;
+    timezone: string;
     checked: boolean;
     status: boolean;
     createdAt: string;

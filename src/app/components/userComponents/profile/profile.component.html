@@ -6,16 +6,25 @@
                 alt=""
                 mat-card-avatar
                 (click)="onAvatarClick()"
+                class="avatar"
             />
             <mat-card-title>
-                My Profile
+                {{userControllerService.User.userName}}
             </mat-card-title>
+            <button 
+                *ngIf="!editName"
+                (click)="EditName()"
+                mat-icon-button
+                class="success-background"
+            >
+                <mat-icon>edit</mat-icon>
+            </button>
             <mat-card-subtitle class="cornflowerblue">
                 {{userControllerService.User.email}}
             </mat-card-subtitle>
         </mat-card-header><br>
         <mat-card-content>
-            <form [formGroup]="formValidation" (ngSubmit)="onSubmit()">
+            <form *ngIf="editName" [formGroup]="formValidation" (ngSubmit)="onSubmit(); EditName()">
                 <mat-form-field  
                     appearance="outline" 
                     class="full-width"
@@ -49,30 +58,50 @@
         <mat-card-content>
             <mat-card-header>
                 <mat-card-title>
-                    Receive email notification
+                    Notification 
+                    <button 
+                        mat-raised-button 
+                        (click)="requestSubscription()"
+                        [color]="userControllerService.User.allowNotification ? 'primary':'accent'" 
+                        type="button"
+                        class="btn-end"
+                    >
+                        {{userControllerService.User.allowNotification ? 'ON': 'OFF'}}
+                    </button>
                 </mat-card-title>
             </mat-card-header>
-            <button 
-                mat-raised-button 
-                (click)="receiveEmailNotification()"
-                [color]="userControllerService.User.emailNotification ? 'primary':'accent'" 
-                type="button"
-            >
-                {{userControllerService.User.emailNotification ? 'ON': 'OFF'}}
-            </button>
-            <mat-card-header class="option">
+        </mat-card-content>
+        <mat-card-content>
+            <mat-card-header class="header">
                 <mat-card-title>
-                    Change password
+                    Email 
+                    <button 
+                        mat-raised-button 
+                        (click)="receiveEmailNotification()"
+                        [color]="userControllerService.User.emailNotification ? 'primary':'accent'" 
+                        type="button"
+                        class="btn-end"
+                    >
+                        {{userControllerService.User.emailNotification ? 'ON': 'OFF'}}
+                    </button>
                 </mat-card-title>
+                <!-- <mat-card-subtitle class="cornflowerblue">
+                    Receive email notification (note: If incase your unable to see
+                    notification in your email, please check your junk box or spam section)
+                </mat-card-subtitle> -->
             </mat-card-header>
-            <button 
-                [routerLink]="routeP.slase+routeP.resetPassword+userControllerService.User._id"
-                mat-raised-button 
-                color="accent"
-                type="button"
-            >
-                Change Password
-            </button>
+        </mat-card-content>
+        <mat-card-content>
+            <mat-card-header class="option">
+                <button 
+                        [routerLink]="routeP.slase+routeP.resetPassword+userControllerService.User._id"
+                        mat-raised-button 
+                        color="accent"
+                        type="button"
+                    >
+                        Change Password
+                    </button>
+            </mat-card-header>
         </mat-card-content>
     </mat-card>
 </div>

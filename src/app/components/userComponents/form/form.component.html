@@ -47,7 +47,8 @@
                     </div>
                 </mat-form-field>
                 <mat-form-field appearance="outline" class="full-width">
-                    <mat-label>{{currentRoute === routeP.slase+routeP.signup ? 'New' : ''}} 
+                    <mat-label>
+                        {{currentRoute === routeP.slase+routeP.signup ? 'New' : ''}} 
                         Password
                     </mat-label>
                     <input 
@@ -87,13 +88,19 @@
                         </mat-error>
                     </div>
                 </mat-form-field>
-                <!-- <mat-checkbox 
+                <mat-checkbox 
                     *ngIf="currentRoute === routeP.slase+routeP.login" 
                     formControlName="rememberMe" 
                     matInput
                 >
-                    Remember me
-                </mat-checkbox> -->
+                    Remember me 
+                </mat-checkbox>
+                <hr>
+                <div>
+                    <button mat-raised-button color="primary" type="submit" class="full-width">
+                        {{currentRoute === routeP.slase+routeP.signup ? "Signup" : "Login"}}
+                    </button>
+                </div>
                 <div class="option">
                     <label *ngIf="currentRoute === routeP.slase+routeP.signup">
                         Aready a user -> 
@@ -112,12 +119,6 @@
                             Forgot password
                         </a>
                     </label>
-                </div>
-                <hr>
-                <div>
-                    <button mat-raised-button color="primary" type="submit" class="full-width">
-                        {{currentRoute === routeP.slase+routeP.signup ? "Signup" : "Login"}}
-                    </button>
                 </div>
             </form>
         </mat-card-content>

@@ -7,6 +7,7 @@ import { UserRouteService } from '../../routes/userRoute/user-route.service';
 import jwt_decode from 'jwt-decode'
 import { EmailControllerService } from '../emailController/email-controller.service';
 import { TaskModel } from 'src/shared/models/taskModel';
+import { SubscriptionModel } from 'src/shared/models/subscriptionModel';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,9 @@ export class UserControllerService {
     if(userRouteService.LoggedIn()) {
       this.displayUser();
       this.displayNotifications();
+      this.updateUserStatus();
       setInterval(() => {
+        this.updateUserStatus();
         this.displayUser();
         this.displayNotifications();
       }, 3000);
@@ -121,6 +124,23 @@ export class UserControllerService {
     }
   }
 
+  subscribeToNotification(formData: any) {
+    try {
+      this.userRouteService
+      .subscribeToNotification(formData)
+      .subscribe(
+        res => {
+          console.log(res);
+        },error => {
+          console.log(error);
+        }
+      );
+    } catch (error) {
+      this.popupService.somethingWhentWrongAlert();
+      // console.log(error);
+    }
+  }
+
   displayNotifications() {
     try {
       this.userRouteService
@@ -198,6 +218,22 @@ export class UserControllerService {
       );
     } catch (error) {
       this.popupService.somethingWhentWrongAlert();
+      // console.log(error);
+    }
+  }
+
+  updateUserStatus() {
+    try {
+      this.userRouteService
+      .updateUserStatus()
+      .subscribe(
+        res => {
+          // console.log(res);
+        }, error => {
+          // console.log(error);
+        }
+      );
+    } catch (error) {
       // console.log(error);
     }
   }

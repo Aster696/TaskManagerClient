@@ -4,6 +4,7 @@ import { routePath } from 'src/shared/lib/routePath';
 import { UserModel } from 'src/shared/models/userModel';
 import jwt_decode from 'jwt-decode'
 import { Router } from '@angular/router';
+import { SubscriptionModel } from 'src/shared/models/subscriptionModel';
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +35,11 @@ export class UserRouteService {
     return this.http.patch<any>(api_url, formData);
   }
 
+  public updateUserStatus() {
+    const api_url = this.routeP.server_url+this.routeP.updateUserServer+this.getTokenId();
+    return this.http.patch<any>(api_url, {status: true});
+  }
+
   public deleteUser() {
     const api_url = this.routeP.server_url+this.routeP.deleteUserServer+this.getTokenId();
     return this.http.delete<any>(api_url);
@@ -42,6 +48,11 @@ export class UserRouteService {
   public displayUser() {
     const api_url = this.routeP.server_url+this.routeP.displayUserServer+this.getTokenId();
     return this.http.get<any>(api_url);
+  }
+
+  public subscribeToNotification(formData: any) {
+    const api_url = this.routeP.server_url+this.routeP.subscribeToNotification+this.getTokenId();
+    return this.http.post<any>(api_url, formData);
   }
 
   public displayNotifications() {

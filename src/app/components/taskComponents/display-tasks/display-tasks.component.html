@@ -43,12 +43,57 @@
     >
         <mat-icon>add</mat-icon>
     </button>
-    <mat-card-content>
+    <mat-card-content *ngIf="userControllerService.User.tasks?.length">
+        <mat-card-header>
+            <mat-card-title>
+                Not Checked List
+            </mat-card-title>
+        </mat-card-header>
         <mat-accordion 
-            *ngFor="let task of taskControllerService.Tasks?.slice()?.reverse()|filter: searchTask"
-            id="{{task._id}}"   
+            *ngFor="let task of taskControllerService.Tasks?.slice()?.reverse()|filter: searchTask; let i = index"
+            id="{{task._id}}"  
         >
-            <mat-expansion-panel (opened)="true" (closed)="false" class="expansion-panel">
+            <mat-expansion-panel *ngIf="!task.checked" (opened)="true" (closed)="false" class="expansion-panel">
+                <mat-expansion-panel-header class="expansion-panel-header">
+                    <mat-panel-title>
+                        {{task.taskName}}
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        {{task.date_time | date: 'MMM d, yyyy'}} <br/>
+                        {{task.date_time | date: 'h:mm a'}}
+                        <mat-icon [ngClass]="task.checked ? 'btn-text-success':'btn-text-accent'" class="end">
+                            {{task.checked ? 'done':'close'}}
+                        </mat-icon>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <p>
+                    {{task.description}}
+                </p>
+                <mat-action-row>
+                    <button (click)="taskControllerService.confirmTaskDeleteAlert(task._id)" mat-mini-fab color="warn" class="start">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    <button (click)="openTaskForm(task._id)" mat-mini-fab color="primary">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button (click)="checkTask(task)" mat-mini-fab [ngClass]="task.checked ? 'btn-success':''" type="button">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                </mat-action-row>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </mat-card-content>
+    <mat-card-content *ngIf="userControllerService.User.tasks?.length">
+        <mat-card-header>
+            <mat-card-title>
+                Checked List
+            </mat-card-title>
+        </mat-card-header>
+        <mat-accordion 
+            *ngFor="let task of taskControllerService.Tasks?.slice()?.reverse()|filter: searchTask; let i = index"
+            id="{{task._id}}"  
+        >
+            <mat-expansion-panel *ngIf="task.checked" (opened)="true" (closed)="false" class="expansion-panel">
                 <mat-expansion-panel-header class="expansion-panel-header">
                     <mat-panel-title>
                         {{task.taskName}}

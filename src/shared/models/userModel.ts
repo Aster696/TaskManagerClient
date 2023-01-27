@@ -7,6 +7,8 @@ export class UserModel {
     rememberMe: boolean;
     tasks: [];
     notification: [];
+    subscribeToNotification: [];
+    allowNotification: boolean;
     emailNotification: boolean;
     authority: string;
     status: boolean;

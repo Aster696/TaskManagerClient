@@ -59,7 +59,7 @@ export class ContactComponent implements OnInit {
       this.userModel.email = this.formValidation.value.email || '';
       this.userModel.subject = this.formValidation.value.subject || '';
       this.userModel.message = this.formValidation.value.message || '';
-      this.userModel.typeOfEmail = 'Feedback from a7-task-manager-client';
+      this.userModel.typeOfEmail = 'feedback-from-user';
       this.emailControllerService.feedback(this.userModel);
       this.formValidation.reset();
     }else {

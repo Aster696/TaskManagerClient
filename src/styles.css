@@ -29,3 +29,43 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .btn-success {
     background-color: #4BB543;
 }
+
+.cornflower-background {
+    background-color: cornflowerblue;
+    color: #fff;
+}
+
+.primary-background {
+    background-color: #0275d8;
+    color: #fff;
+}
+
+.info-background {
+    background-color: #5bc0de;
+    color: #fff;
+}
+
+.success-background {
+    background-color: #5cb85c;
+    color: #fff;
+}
+
+.warning-background {
+    background-color: #f0ad4e;
+    color: #fff;
+}
+
+.danger-background {
+    background-color: #d9534f;
+    color: #fff;
+}
+
+.faded-background {
+    background-color: #f7f7f7;
+    color: #000;
+}
+
+.inverse-background {
+    background-color: #292b2c;
+    color: #fff;
+}

@@ -36,7 +36,6 @@ export class ProfileComponent implements OnInit {
   routeP = new routePath();
   private pat = new pattern();
   private key = new Keys();
-  private userModel = new UserModel();
   private subscriptionModel = new SubscriptionModel();
 
   formValidation = this.fb.group({
@@ -55,11 +54,22 @@ export class ProfileComponent implements OnInit {
 
   receiveEmailNotification() {
     if(this.userControllerService.User.emailNotification) {
-      this.userModel.emailNotification = false;
+      this.userControllerService.User.emailNotification = false;
     }else {
-      this.userModel.emailNotification = true;
+      this.userControllerService.User.emailNotification = true;
     }
     this.onSubmit();
+  }
+
+  allowNotification() {
+    if(this.userControllerService.User.allowNotification) {
+      this.userControllerService.User.allowNotification = false;
+      this.userControllerService.updateUser(this.userControllerService.User);
+    }else {
+      this.userControllerService.User.allowNotification = true;
+      this.userControllerService.updateUser(this.userControllerService.User);
+      this.requestSubscription();
+    }
   }
 
   requestSubscription() {
@@ -80,8 +90,8 @@ export class ProfileComponent implements OnInit {
 
   onSubmit() {
     if(!this.formValidation.invalid) {
-      this.userModel.userName = this.formValidation.value.userName || '';
-      this.userControllerService.updateUser(this.userModel);
+      this.userControllerService.User.userName = this.formValidation.value.userName || '';
+      this.userControllerService.updateUser(this.userControllerService.User);
     }else {
       this.popupService.formValidationAlert();
     }

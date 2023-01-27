@@ -61,12 +61,12 @@
                     Notification 
                     <button 
                         mat-raised-button 
-                        (click)="requestSubscription()"
-                        [color]="userControllerService.User.allowNotification ? 'primary':'accent'" 
+                        (click)="allowNotification()"
+                        [color]="userControllerService.User.allowNotification ? 'primary' : 'accent'" 
                         type="button"
                         class="btn-end"
                     >
-                        {{userControllerService.User.allowNotification ? 'ON': 'OFF'}}
+                        {{userControllerService.User.allowNotification ? 'ON' : 'OFF'}}
                     </button>
                 </mat-card-title>
             </mat-card-header>

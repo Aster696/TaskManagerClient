@@ -29,7 +29,13 @@
   ], "dataGroups": [{
     "name": "api-call",
     "urls": [
-      "http://localhost:5700"
-    ]
+      "https://plain-gold-pronghorn.cyclic.app"
+    ],
+    "cacheConfig": {
+      "strategy": "freshness",
+      "maxSize": 50,
+      "maxAge": "30m",
+      "timeout": "5s"
+    }
   }]
 }

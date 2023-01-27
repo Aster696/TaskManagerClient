@@ -30,7 +30,7 @@ import { TokenInterceptorInterceptor } from 'src/tokenInterceptor/token-intercep
 import { UserAuthGuard } from 'src/auth/UserAuth/user-auth.guard';
 import { UserLoggedinAuthGuard } from 'src/auth/UserLoggedinAuth/user-loggedin-auth.guard';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { ServiceWorkerModule } from '@angular/service-worker';
+import { ServiceWorkerModule, } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { AvatarsComponent } from './components/userComponents/avatars/avatars.component';
 

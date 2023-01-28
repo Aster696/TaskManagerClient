@@ -35,6 +35,7 @@ export class ProfileComponent implements OnInit {
 
   routeP = new routePath();
   private pat = new pattern();
+  private userModel = new UserModel();
   private key = new Keys();
   private subscriptionModel = new SubscriptionModel();
 
@@ -54,20 +55,20 @@ export class ProfileComponent implements OnInit {
 
   receiveEmailNotification() {
     if(this.userControllerService.User.emailNotification) {
-      this.userControllerService.User.emailNotification = false;
+      this.userModel.emailNotification = false;
     }else {
-      this.userControllerService.User.emailNotification = true;
+      this.userModel.emailNotification = true;
     }
     this.onSubmit();
   }
 
   allowNotification() {
     if(this.userControllerService.User.allowNotification) {
-      this.userControllerService.User.allowNotification = false;
-      this.userControllerService.updateUser(this.userControllerService.User);
+      this.userModel.allowNotification = false;
+      this.userControllerService.updateUser(this.userModel);
     }else {
-      this.userControllerService.User.allowNotification = true;
-      this.userControllerService.updateUser(this.userControllerService.User);
+      this.userModel.allowNotification = true;
+      this.userControllerService.updateUser(this.userModel);
       this.requestSubscription();
     }
   }
@@ -90,8 +91,8 @@ export class ProfileComponent implements OnInit {
 
   onSubmit() {
     if(!this.formValidation.invalid) {
-      this.userControllerService.User.userName = this.formValidation.value.userName || '';
-      this.userControllerService.updateUser(this.userControllerService.User);
+      this.userModel.userName = this.formValidation.value.userName || '';
+      this.userControllerService.updateUser(this.userModel);
     }else {
       this.popupService.formValidationAlert();
     }

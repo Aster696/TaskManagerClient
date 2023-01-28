@@ -66,11 +66,11 @@ export class FormComponent implements OnInit {
     this.userModel.password = this.formValidation.value.password || '';
     this.userControllerService.register(this.userModel);
     this.formValidation.reset();
-    console.log(this.userModel.rememberMe)
+    // console.log(this.userModel.rememberMe)
   }
 
   login(): void {
-    console.log(this.formValidation.value.rememberMe)
+    // console.log(this.formValidation.value.rememberMe)
     this.userModel.email = this.formValidation.value.email || '';
     this.userModel.password = this.formValidation.value.password || '';
     this.userModel.rememberMe = this.formValidation.value.rememberMe || false;

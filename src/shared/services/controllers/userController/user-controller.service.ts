@@ -92,8 +92,10 @@ export class UserControllerService {
       .updateUser(formData)
       .subscribe(
         res => {
+          console.log(res);
           this.popupService.userUpdatedSuccessAlert();
         }, error => {
+          console.log(error)
           if(error.status === 200 || 204) {
             this.popupService.userUpdatedSuccessAlert();
           }else {

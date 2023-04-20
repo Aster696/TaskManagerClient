@@ -5,13 +5,14 @@ import { formValidators } from 'src/shared/formValidators/formValidators';
 import { pattern } from 'src/shared/lib/pattern';
 import { routePath } from 'src/shared/lib/routePath';
 import { UserModel } from 'src/shared/models/userModel';
+import { BasicService } from 'src/shared/services/basicService/basic.service';
 import { UserControllerService } from 'src/shared/services/controllers/userController/user-controller.service';
 import { PopupService } from 'src/shared/services/popupService/popup.service';
 
 @Component({
   selector: 'app-reset-password',
   templateUrl: './reset-password.component.html',
-  styleUrls: ['./reset-password.component.css']
+  styleUrls: ['./reset-password.component.css', '../../../../../../src/styles.css']
 })
 export class ResetPasswordComponent implements OnInit {
 
@@ -20,6 +21,7 @@ export class ResetPasswordComponent implements OnInit {
     private userControllerService: UserControllerService,
     private popupService: PopupService,
     private route: ActivatedRoute,
+    public basicService: BasicService,
   ) { }
 
   ngOnInit(): void {

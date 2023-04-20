@@ -10,6 +10,7 @@ import { AvatarsComponent } from '../avatars/avatars.component';
 import { SwPush } from "@angular/service-worker";
 import { Keys } from 'src/shared/lib/keys';
 import { SubscriptionModel } from 'src/shared/models/subscriptionModel';
+import { BasicService } from 'src/shared/services/basicService/basic.service';
 
 @Component({
   selector: 'app-profile',
@@ -23,7 +24,8 @@ export class ProfileComponent implements OnInit {
     public userControllerService: UserControllerService,
     private popupService: PopupService,
     private dialog: MatDialog,
-    private swPush: SwPush
+    private swPush: SwPush,
+    public basicService: BasicService
   ) { }
 
   ngOnInit(): void {

@@ -5,6 +5,7 @@ export class UserModel {
     email: string;
     password: string;
     rememberMe: boolean;
+    darkMode: boolean;
     tasks: [];
     notification: [];
     subscribeToNotification: [];

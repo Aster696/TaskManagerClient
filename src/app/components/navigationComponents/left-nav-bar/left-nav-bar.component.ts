@@ -1,5 +1,7 @@
 import { AfterContentChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { subscribeOn } from 'rxjs';
 import { routePath } from 'src/shared/lib/routePath';
+import { UserModel } from 'src/shared/models/userModel';
 import { BasicService } from 'src/shared/services/basicService/basic.service';
 import { UserControllerService } from 'src/shared/services/controllers/userController/user-controller.service';
 import { UserRouteService } from 'src/shared/services/routes/userRoute/user-route.service';
@@ -26,5 +28,17 @@ export class LeftNavBarComponent implements OnInit, AfterContentChecked {
   }
 
   routeP = new routePath();
+
+  DarkMode() {
+    const userModel = new UserModel();
+    if(this.userRouteService.LoggedIn()) {
+      userModel.darkMode = this.basicService.darkMode;
+
+      console.log(userModel.darkMode)
+
+      this.userControllerService
+      .updateUser(userModel);
+    }
+  }
 
 }

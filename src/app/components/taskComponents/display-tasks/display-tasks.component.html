@@ -1,4 +1,6 @@
-<mat-toolbar class="toolbar">
+<mat-toolbar 
+    [class]="basicService.darkMode ? 'dark-mode white-text-color' : 'toolbar'"
+>
     <span></span>
     <div class="center-tab">
         <mat-form-field 
@@ -11,6 +13,7 @@
                 matInput 
                 placeholder="Search task 🔍" 
                 type="search"
+                [class]="basicService.darkMode ? 'search' : ''"
             >
         </mat-form-field>
     </div>
@@ -35,70 +38,35 @@
         </mat-menu> 
     </div>
 </mat-toolbar>
-<mat-card class="card">
+<mat-card
+    [class]="basicService.darkMode ? 'dark-mode white-text-color scrollbar card' : 'card'"
+>
     <button 
         (click)="openTaskForm('')"
         mat-raised-button 
+        color="primary"
         class="full-width add-button"
     >
         <mat-icon>add</mat-icon>
     </button>
-    <mat-card-content *ngIf="userControllerService.User.tasks?.length">
-        <mat-card-header>
-            <mat-card-title>
-                Not Checked List
-            </mat-card-title>
-        </mat-card-header>
+    <mat-card-content>
         <mat-accordion 
             *ngFor="let task of taskControllerService.Tasks?.slice()?.reverse()|filter: searchTask; let i = index"
             id="{{task._id}}"  
         >
-            <mat-expansion-panel *ngIf="!task.checked" (opened)="true" (closed)="false" class="expansion-panel">
+            <mat-expansion-panel
+                (closed)="false" 
+                [class]="basicService.darkMode ? 'dark-mode white-text-color expansion-panel' : 'expansion-panel'"
+            >
                 <mat-expansion-panel-header class="expansion-panel-header">
-                    <mat-panel-title>
+                    <mat-panel-title
+                        [class]="basicService.darkMode ? 'white-text-color' : ''"
+                    >
                         {{task.taskName}}
                     </mat-panel-title>
-                    <mat-panel-description>
-                        {{task.date_time | date: 'MMM d, yyyy'}} <br/>
-                        {{task.date_time | date: 'h:mm a'}}
-                        <mat-icon [ngClass]="task.checked ? 'btn-text-success':'btn-text-accent'" class="end">
-                            {{task.checked ? 'done':'close'}}
-                        </mat-icon>
-                    </mat-panel-description>
-                </mat-expansion-panel-header>
-                <p>
-                    {{task.description}}
-                </p>
-                <mat-action-row>
-                    <button (click)="taskControllerService.confirmTaskDeleteAlert(task._id)" mat-mini-fab color="warn" class="start">
-                        <mat-icon>delete</mat-icon>
-                    </button>
-                    <button (click)="openTaskForm(task._id)" mat-mini-fab color="primary">
-                        <mat-icon>edit</mat-icon>
-                    </button>
-                    <button (click)="checkTask(task)" mat-mini-fab [ngClass]="task.checked ? 'btn-success':''" type="button">
-                        <mat-icon>check</mat-icon>
-                    </button>
-                </mat-action-row>
-            </mat-expansion-panel>
-        </mat-accordion>
-    </mat-card-content>
-    <mat-card-content *ngIf="userControllerService.User.tasks?.length">
-        <mat-card-header>
-            <mat-card-title>
-                Checked List
-            </mat-card-title>
-        </mat-card-header>
-        <mat-accordion 
-            *ngFor="let task of taskControllerService.Tasks?.slice()?.reverse()|filter: searchTask; let i = index"
-            id="{{task._id}}"  
-        >
-            <mat-expansion-panel *ngIf="task.checked" (opened)="true" (closed)="false" class="expansion-panel">
-                <mat-expansion-panel-header class="expansion-panel-header">
-                    <mat-panel-title>
-                        {{task.taskName}}
-                    </mat-panel-title>
-                    <mat-panel-description>
+                    <mat-panel-description
+                        [class]="basicService.darkMode ? 'white-text-color' : ''"
+                    >
                         {{task.date_time | date: 'MMM d, yyyy'}} <br/>
                         {{task.date_time | date: 'h:mm a'}}
                         <mat-icon [ngClass]="task.checked ? 'btn-text-success':'btn-text-accent'" class="end">

@@ -5,12 +5,13 @@ import { formValidators } from 'src/shared/formValidators/formValidators';
 import { pattern } from 'src/shared/lib/pattern';
 import { routePath } from 'src/shared/lib/routePath';
 import { UserModel } from 'src/shared/models/userModel';
+import { BasicService } from 'src/shared/services/basicService/basic.service';
 import { UserControllerService } from 'src/shared/services/controllers/userController/user-controller.service';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  styleUrls: ['./form.component.css', '../../../../../src/styles.css']
 })
 export class FormComponent implements OnInit {
 
@@ -18,6 +19,7 @@ export class FormComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private userControllerService: UserControllerService,
+    public basicService: BasicService
   ) { }
 
   ngOnInit(): void {

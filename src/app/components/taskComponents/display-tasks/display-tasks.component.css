@@ -1,5 +1,11 @@
 .toolbar {
     width: 100%;
+    background-color: white;
+}
+
+.search::placeholder {
+    color: white;
+    opacity: 0.8;
 }
 
 .end-tab {
@@ -14,13 +20,14 @@
 .card {
     height: calc(100vh - 161px);
     overflow-y: scroll;
+    scrollbar-color: #2c2c2c;
     border-radius: 0;
 }
 
 .add-button {
     margin-bottom: 10px;
-    color: white;
-    background-color: #4BB543;
+    /* color: white;
+    background-color: #4BB543; */
 }
 
 .expansion-panel {
@@ -28,8 +35,8 @@
 }
 
 .expansion-panel-header {
-    min-height: 45px;
-    height: auto;
+    /* min-height: 45px;
+    height: auto; */
 }
 
 .start {

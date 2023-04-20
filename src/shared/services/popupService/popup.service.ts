@@ -87,7 +87,7 @@ export class PopupService {
       icon: 'success',
       timer: 3000
     });
-    location.href = this.routeP.slase+this.routeP.home;
+    this.router.navigate([this.routeP.slase+this.routeP.home]);
   }
 
   emailOrPasswordInvalidAlert() {

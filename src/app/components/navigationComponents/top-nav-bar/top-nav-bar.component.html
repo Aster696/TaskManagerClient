@@ -1,4 +1,6 @@
-<mat-toolbar class="nav-color toolbar">
+<mat-toolbar 
+    [class]="basicService.darkMode ? 'nav-color-dark toolbar' : 'nav-color toolbar'"
+>
     <button mat-icon-button (click)="basicService.Drawer()">
         <mat-icon>menu</mat-icon>
     </button>

@@ -1,4 +1,6 @@
-<mat-card class="card">
+<mat-card 
+    [class]="basicService.darkMode ? 'nav-color-dark card' : 'card'"
+>
     <mat-card-header>
         <img 
             [src]="userControllerService.User.avatar ? userControllerService.User.avatar : 'assets/logo/TaskManagerLogo.jpeg'" 
@@ -8,16 +10,22 @@
         <mat-card-title>
             {{userControllerService.User.userName}}
         </mat-card-title>
-        <mat-card-subtitle [routerLink]="routeP.slase+routeP.profile" class="link">
+        <mat-card-subtitle 
+            [routerLink]="routeP.slase+routeP.profile" 
+            class="link"
+        >
             Account settings..
         </mat-card-subtitle>
     </mat-card-header>
 </mat-card>
-<mat-selection-list [multiple]="false" class="list">
+<mat-selection-list 
+    [multiple]="false" 
+    class="list"
+>
     <mat-list-option 
         [routerLink]="routeP.home"
         (click)="basicService.Drawer()"
-        class="list-item"
+        [class]="basicService.darkMode ? 'darkmode-list-item' : 'list-item'"
     >
         <mat-icon mat-list-icon>home</mat-icon>
         Home
@@ -25,7 +33,7 @@
     <mat-list-option 
         [routerLink]="routeP.about"
         (click)="basicService.Drawer()"
-        class="list-item" 
+        [class]="basicService.darkMode ? 'darkmode-list-item' : 'list-item'" 
     >
         <mat-icon mat-list-icon>info</mat-icon>
         About
@@ -33,14 +41,14 @@
     <mat-list-option 
         [routerLink]="routeP.contact"
         (click)="basicService.Drawer()"    
-        class="list-item"
+        [class]="basicService.darkMode ? 'darkmode-list-item' : 'list-item'"
     >
         <mat-icon mat-list-icon>phone</mat-icon>
         Contact
     </mat-list-option>
     <mat-list-option  
         (click)="basicService.onLinkClick('https://www.buymeacoffee.com/RockBox7000')"
-        class="list-item"
+        [class]="basicService.darkMode ? 'darkmode-list-item' : 'list-item'"
     >
         <mat-icon mat-list-icon>payments</mat-icon>
         Donation
@@ -49,7 +57,7 @@
         *ngIf="!userRouteService.LoggedIn()"
         [routerLink]="routeP.login"
         (click)="basicService.Drawer()" 
-        class="list-item"   
+        [class]="basicService.darkMode ? 'darkmode-list-item' : 'list-item'"   
     >
         <mat-icon mat-list-icon>login</mat-icon>
         Login
@@ -58,7 +66,7 @@
         *ngIf="!userRouteService.LoggedIn()"
         [routerLink]="routeP.signup"
         (click)="basicService.Drawer()" 
-        class="list-item"   
+        [class]="basicService.darkMode ? 'darkmode-list-item' : 'list-item'"   
     >
         <mat-icon mat-list-icon>person_add</mat-icon>
         Signup
@@ -71,15 +79,16 @@
         <mat-icon mat-list-icon>logout</mat-icon>
         Logout
     </mat-list-option>
-</mat-selection-list>
-<!-- menu -->
-<mat-menu #menu="matMenu">
-    <button mat-menu-item class="menu-item full-width">
-        <mat-icon class="menu-item">dark_mode</mat-icon>
-        <span>Dark mode </span>
+    <mat-list-option 
+        [class]="basicService.darkMode ? 'darkmode-list-item' : 'list-item'"
+    >
+        <mat-icon mat-list-icon>dark_mode</mat-icon>
         <mat-slide-toggle 
-            [checked]="basicService.dark"
-            (click)="basicService.darkMode()"
-        ></mat-slide-toggle>
-    </button>
-</mat-menu>
+            (change)="DarkMode()"
+            [(ngModel)]="basicService.darkMode"
+            color="primary"
+        >
+            Dark Mode
+        </mat-slide-toggle>
+    </mat-list-option>
+</mat-selection-list>

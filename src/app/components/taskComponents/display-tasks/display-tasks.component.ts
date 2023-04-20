@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import * as moment from 'moment';
 import { TaskModel } from 'src/shared/models/taskModel';
 import { UserModel } from 'src/shared/models/userModel';
+import { BasicService } from 'src/shared/services/basicService/basic.service';
 import { TaskControllerService } from 'src/shared/services/controllers/taskController/task-controller.service';
 import { UserControllerService } from 'src/shared/services/controllers/userController/user-controller.service';
 import { PopupService } from 'src/shared/services/popupService/popup.service';
@@ -18,6 +19,7 @@ export class DisplayTasksComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
+    public basicService: BasicService,
     public taskControllerService: TaskControllerService,
     public userRouteService: UserRouteService,
     public userControllerService: UserControllerService,
@@ -33,7 +35,9 @@ export class DisplayTasksComponent implements OnInit {
   openTaskForm(updateTask: string): void {
     if(this.userRouteService.LoggedIn()) {
       this.taskControllerService.updateTaskId = updateTask;
-      this.dialog.open(AddTaskComponent);
+      this.dialog.open(AddTaskComponent, {
+        panelClass: this.basicService.darkMode ? 'form': ''
+      });
     } else {
       this.popupService.loginRequiredAlert();
     }

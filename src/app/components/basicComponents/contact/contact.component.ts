@@ -5,13 +5,14 @@ import { formValidators } from 'src/shared/formValidators/formValidators';
 import { pattern } from 'src/shared/lib/pattern';
 import { routePath } from 'src/shared/lib/routePath';
 import { UserModel } from 'src/shared/models/userModel';
+import { BasicService } from 'src/shared/services/basicService/basic.service';
 import { EmailControllerService } from 'src/shared/services/controllers/emailController/email-controller.service';
 import { PopupService } from 'src/shared/services/popupService/popup.service';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  styleUrls: ['./contact.component.css', '../../../../../src/styles.css']
 })
 export class ContactComponent implements OnInit {
 
@@ -20,6 +21,7 @@ export class ContactComponent implements OnInit {
     private fb: FormBuilder,
     private popupService: PopupService,
     private emailControllerService: EmailControllerService,
+    public basicService: BasicService
   ) { }
 
   ngOnInit(): void {

@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import * as moment from 'moment';
 import { TaskModel } from 'src/shared/models/taskModel';
+import { BasicService } from 'src/shared/services/basicService/basic.service';
 import { TaskControllerService } from 'src/shared/services/controllers/taskController/task-controller.service';
 import { PopupService } from 'src/shared/services/popupService/popup.service';
 import { UserRouteService } from 'src/shared/services/routes/userRoute/user-route.service';
@@ -10,7 +11,7 @@ import { UserRouteService } from 'src/shared/services/routes/userRoute/user-rout
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.component.html',
-  styleUrls: ['./add-task.component.css']
+  styleUrls: ['./add-task.component.css', '../../../../../src/styles.css']
 })
 export class AddTaskComponent implements OnInit {
 
@@ -20,6 +21,7 @@ export class AddTaskComponent implements OnInit {
     private userRouterService: UserRouteService,
     public taskControllerService: TaskControllerService,
     private popupService: PopupService,
+    public basicService: BasicService
   ) { }
 
   ngOnInit(): void {

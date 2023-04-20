@@ -1,4 +1,6 @@
-<mat-card class="card cornflowerblue">
+<mat-card 
+    [class]="basicService.darkMode ? 'dark-mode card' : 'card cornflowerblue'"
+>
     <mat-card-header>
         <mat-card-title>
             About

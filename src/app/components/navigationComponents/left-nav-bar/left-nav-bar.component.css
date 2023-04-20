@@ -8,15 +8,12 @@
     /* border-right: 1px solid cornflowerblue; */
 }
 
+.darkmode-list-item {
+    color: white;
+}
+
+
 .list-item {
-    color: cornflowerblue;
-}
-
-.menu {
-    
-}
-
-.menu-item {
     color: cornflowerblue;
 }
 

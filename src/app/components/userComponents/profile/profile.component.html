@@ -1,5 +1,5 @@
-<div class="container">
-    <mat-card class="card">
+<div [class]="basicService.darkMode ? 'dark-mode container' : 'container'">
+    <mat-card [class]="basicService.darkMode ? 'dark-mode-form card' : 'card cornflowerblue-text-color'">
         <mat-card-header>
             <img 
                 [src]="userControllerService.User.avatar" 
@@ -19,7 +19,7 @@
             >
                 <mat-icon>edit</mat-icon>
             </button>
-            <mat-card-subtitle class="cornflowerblue">
+            <mat-card-subtitle class="cornflowerblue-text-color">
                 {{userControllerService.User.email}}
             </mat-card-subtitle>
         </mat-card-header><br>

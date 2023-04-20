@@ -71,10 +71,7 @@ export class BasicService {
     }
   }
 
-  public dark = false;
-  darkMode(): void {
-    document.body.classList.toggle('darkmode');
-  }
+  public darkMode = false;
 
   onLinkClick(link: string): any{
     return window.location.href = link;

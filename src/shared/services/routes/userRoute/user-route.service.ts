@@ -74,7 +74,7 @@ export class UserRouteService {
   //user logged out
   public LogOut() {
     localStorage.removeItem(this.accessToken);
-    location.href = this.routeP.slase+this.routeP.login;
+    this.router.navigate([this.routeP.slase+this.routeP.login]);
   }
 
   // forgot password

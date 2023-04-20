@@ -15,9 +15,9 @@ export class routePath {
     addTask: string = 'add-task';
     displayTasks: string = 'display-tasks';
 // server route
-    // server_url: string = 'http://localhost:5700';
+    server_url: string = 'http://localhost:5700';
     // server_url: string = 'https://32a5-103-171-211-202.in.ngrok.io';
-    server_url: string = 'https://plain-gold-pronghorn.cyclic.app';
+    // server_url: string = 'https://plain-gold-pronghorn.cyclic.app';
     // server_url: string = 'https://a7-task-manager-server.herokuapp.com';
     // user route
         registerServer = '/user/register';

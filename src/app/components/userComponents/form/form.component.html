@@ -1,12 +1,16 @@
-<div class="container">
-    <mat-card class="card">
+<div [class]="basicService.darkMode ? 'dark-mode container' : 'container'">
+    <mat-card [class]="basicService.darkMode ? 'dark-mode-form card' : 'card cornflowerblue-text-color'">
         <mat-card-header>
             <mat-card-title>
                 {{currentRoute === routeP.slase+routeP.signup ? "Signup" : "Login"}}
             </mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <form [formGroup]="formValidation" (ngSubmit)="currentRoute === routeP.slase+routeP.signup ? signup() : login()">
+            <form 
+                [formGroup]="formValidation" 
+                (ngSubmit)="currentRoute === routeP.slase+routeP.signup ? signup() : login()"
+                [class]="basicService.darkMode ? 'form' : ''"
+            >
                 <mat-form-field 
                     *ngIf="currentRoute === routeP.slase+routeP.signup" 
                     appearance="outline" 

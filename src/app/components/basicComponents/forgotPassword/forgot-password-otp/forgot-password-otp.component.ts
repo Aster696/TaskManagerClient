@@ -9,16 +9,16 @@ import { PopupService } from 'src/shared/services/popupService/popup.service';
 @Component({
   selector: 'app-forgot-password-otp',
   templateUrl: './forgot-password-otp.component.html',
-  styleUrls: ['./forgot-password-otp.component.css']
+  styleUrls: ['./forgot-password-otp.component.css', '../../../../../../src/styles.css']
 })
 export class ForgotPasswordOtpComponent implements OnInit {
 
   constructor(
     private router: Router,
     private fb: FormBuilder,
-    private basicService: BasicService,
     private route: ActivatedRoute,
     private popupService: PopupService,
+    public basicService: BasicService,
   ) { }
 
   ngOnInit(): void {

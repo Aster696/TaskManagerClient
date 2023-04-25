@@ -11,7 +11,7 @@ import { UserRouteService } from 'src/shared/services/routes/userRoute/user-rout
   templateUrl: './left-nav-bar.component.html',
   styleUrls: ['./left-nav-bar.component.css']
 })
-export class LeftNavBarComponent implements OnInit, AfterContentChecked {
+export class LeftNavBarComponent implements OnInit {
 
   constructor(
     public basicService: BasicService,
@@ -21,10 +21,12 @@ export class LeftNavBarComponent implements OnInit, AfterContentChecked {
   ) { }
 
   ngOnInit(): void {
-  }
-
-  ngAfterContentChecked(): void {
-    this.cdref.detectChanges()
+    if(this.userRouteService.LoggedIn()) {
+      this.userControllerService.displayUser();
+      setInterval(() => {
+        this.userControllerService.updateUserStatus();
+      }, 3000);
+    }
   }
 
   routeP = new routePath();
@@ -36,8 +38,7 @@ export class LeftNavBarComponent implements OnInit, AfterContentChecked {
 
       console.log(userModel.darkMode)
 
-      this.userControllerService
-      .updateUser(userModel);
+      this.userControllerService.updateUser(userModel);
     }
   }
 

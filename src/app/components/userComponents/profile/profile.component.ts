@@ -83,10 +83,11 @@ export class ProfileComponent implements OnInit {
     this.swPush.requestSubscription({
       serverPublicKey: this.key.publicKey
     }).then((res) => {
+      // console.log(res)
       // console.log(JSON.stringify(res));
       this.userControllerService.subscribeToNotification(res);
     }).catch((error) => {
-      console.log(error);
+      // console.log(error);
     })
 
   }
@@ -98,6 +99,10 @@ export class ProfileComponent implements OnInit {
     }else {
       this.popupService.formValidationAlert();
     }
+  }
+
+  onCancel() {
+    this.EditName()
   }
 
   onAvatarClick() {

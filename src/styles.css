@@ -33,6 +33,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
 }
 
 /* dark mode form */
+.dark-mode-form {
+    background-color: #1f1f1f;
+    color: white;
+}
+
 .form .mat-form-field-appearance-outline .mat-form-field-outline {
     color: white;
 }
@@ -60,11 +65,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
     background-color: #1f1f1f;
 }
 
-.form .mat-dialog-container  .mat-dialog-title{
-    color: white;
-}
-
-.dialog .mat-dialog-container  .mat-dialog-title{
+.form .mat-dialog-container {
     color: white;
 }
 
@@ -97,11 +98,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
 
 .dark-mode {
     background-color: #292929;
-    color: white;
-}
-
-.dark-mode-form {
-    background-color: #1f1f1f;
     color: white;
 }
 

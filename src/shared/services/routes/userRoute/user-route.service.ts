@@ -31,32 +31,32 @@ export class UserRouteService {
   }
 
   public updateUser(formData: UserModel) {
-    const api_url = this.routeP.server_url+this.routeP.updateUserServer+this.getTokenId();
+    const api_url = this.routeP.server_url+this.routeP.updateUserServer;
     return this.http.patch<any>(api_url, formData);
   }
 
   public updateUserStatus() {
-    const api_url = this.routeP.server_url+this.routeP.updateUserServer+this.getTokenId();
+    const api_url = this.routeP.server_url+this.routeP.updateUserServer;
     return this.http.patch<any>(api_url, {status: true});
   }
 
   public deleteUser() {
-    const api_url = this.routeP.server_url+this.routeP.deleteUserServer+this.getTokenId();
+    const api_url = this.routeP.server_url+this.routeP.deleteUserServer;
     return this.http.delete<any>(api_url);
   }
 
   public displayUser() {
-    const api_url = this.routeP.server_url+this.routeP.displayUserServer+this.getTokenId();
+    const api_url = this.routeP.server_url+this.routeP.displayUserServer;
     return this.http.get<any>(api_url);
   }
 
   public subscribeToNotification(formData: any) {
-    const api_url = this.routeP.server_url+this.routeP.subscribeToNotification+this.getTokenId();
+    const api_url = this.routeP.server_url+this.routeP.subscribeToNotification;
     return this.http.post<any>(api_url, formData);
   }
 
   public displayNotifications() {
-    const api_url = this.routeP.server_url+this.routeP.displayNotificationsServer+this.getTokenId();
+    const api_url = this.routeP.server_url+this.routeP.displayNotificationsServer;
     return this.http.get<any>(api_url);
   }
 

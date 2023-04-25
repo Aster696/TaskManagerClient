@@ -13,11 +13,9 @@ export class TaskControllerService {
   constructor(
     private taskRouteService: TaskRouteService,
     private popupService: PopupService,
-    userRouteService: UserRouteService,
+    private userRouteService: UserRouteService,
   ) {
-    if(userRouteService.LoggedIn()) {
-      this.displayTasks();
-    }
+    
   }
 
   Tasks: TaskModel[];

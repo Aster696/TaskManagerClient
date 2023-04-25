@@ -8,6 +8,7 @@ import jwt_decode from 'jwt-decode'
 import { EmailControllerService } from '../emailController/email-controller.service';
 import { TaskModel } from 'src/shared/models/taskModel';
 import { SubscriptionModel } from 'src/shared/models/subscriptionModel';
+import { BasicService } from '../../basicService/basic.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,18 +19,8 @@ export class UserControllerService {
     private userRouteService: UserRouteService,
     private emailControllerService: EmailControllerService,
     private popupService: PopupService,
-    private router: Router,
+    private basicService: BasicService
   ) { 
-    if(userRouteService.LoggedIn()) {
-      this.displayUser();
-      this.displayNotifications();
-      this.updateUserStatus();
-      setInterval(() => {
-        this.updateUserStatus();
-        this.displayUser();
-        this.displayNotifications();
-      }, 3000);
-    }
   }
 
   public User = new UserModel();
@@ -92,12 +83,16 @@ export class UserControllerService {
       .updateUser(formData)
       .subscribe(
         res => {
-          console.log(res);
-          this.popupService.userUpdatedSuccessAlert();
+          // console.log(res);
+          if(res.status === 200) {
+            this.popupService.userUpdatedSuccessAlert();
+            this.displayUser();
+          }
         }, error => {
-          console.log(error)
+          // console.log(error)
           if(error.status === 200 || 204) {
             this.popupService.userUpdatedSuccessAlert();
+            this.displayUser();
           }else {
             this.popupService.somethingWhentWrongAlert();
           }
@@ -116,6 +111,7 @@ export class UserControllerService {
       .subscribe(
         data => {
           this.User = data;
+          this.basicService.darkMode = this.User.darkMode;
         }, error => {
           this.popupService.somethingWhentWrongAlert();
         }
@@ -167,9 +163,11 @@ export class UserControllerService {
       .subscribe(
         res => {
           this.popupService.removedNotificationSuccessAlert();
+          this.displayNotifications()
         }, error => {
           if(error.status === 200 || 204) {
             this.popupService.removedNotificationSuccessAlert();
+            this.displayNotifications()
           }else {
             this.popupService.somethingWhentWrongAlert();
           }
@@ -231,8 +229,14 @@ export class UserControllerService {
       .subscribe(
         res => {
           // console.log(res);
+          if(res.status === 200) {
+            this.displayNotifications();
+          }
         }, error => {
           // console.log(error);
+          if(error.status === 200) {
+            this.displayNotifications();
+          }
         }
       );
     } catch (error) {

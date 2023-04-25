@@ -27,6 +27,9 @@ export class DisplayTasksComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    if(this.userRouteService.LoggedIn()) {
+      this.taskControllerService.displayTasks();
+    }
   }
 
   searchTask: string;

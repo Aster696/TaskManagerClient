@@ -22,12 +22,12 @@ export class routePath {
     // user route
         registerServer = '/user/register';
         loginServer = '/user/login';
-        updateUserServer = '/user/update-user/';//:id
-        deleteUserServer = '/user/delete-user/';//:id
-        displayUserServer = '/user/display-user/'//:id
-        subscribeToNotification = '/user/subscribe-to-notification/';//:id
-        displayNotificationsServer = '/user/display-notifications/';//:id
-        removeNotificationServer = '/user/remove-notification/';//:id
+        updateUserServer = '/user/update-user';//payload
+        deleteUserServer = '/user/delete-user';//payload
+        displayUserServer = '/user/display-user'//payload
+        subscribeToNotification = '/user/subscribe-to-notification';//payload
+        displayNotificationsServer = '/user/display-notifications';//payload
+        removeNotificationServer = '/user/remove-notification/';//task id
         forgotPasswordServer = '/user/forgot-password';
     // task route
         addTaskServer = '/task/add-task';

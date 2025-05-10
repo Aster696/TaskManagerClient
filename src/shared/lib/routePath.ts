@@ -19,7 +19,7 @@ export class routePath {
     // server_url: string = 'https://32a5-103-171-211-202.in.ngrok.io';
     // server_url: string = 'https://plain-gold-pronghorn.cyclic.app';
     // server_url: string = 'https://a7-task-manager-server.herokuapp.com';
-    server_url: string = 'https://taskmanagerserver-xq2i.onrender.com'
+    server_url: string = 'https://taskmanagerserver-j5j8.onrender.com'
     // user route
     registerServer = '/user/register';
     loginServer = '/user/login';
